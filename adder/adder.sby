@@ -1,0 +1,17 @@
+[tasks]
+task1
+
+[options]
+task1:
+mode bmc
+depth 100
+
+[engines]
+bmc: smtbmc
+
+[script]
+read -formal adder.v
+prep -top adder
+
+[files]
+adder.v
