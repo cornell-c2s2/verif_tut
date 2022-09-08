@@ -187,16 +187,74 @@ module sliding_tile
                             endcase
                 end
                 4'b0110: begin // Middle right
-
+                            case (direction) 
+                                UP     : begin
+                                            // Swap top right and middle right
+                                            top_right    <= middle_right;
+                                            middle_right <= top_right;
+                                end
+                                LEFT   : begin
+                                            // Swap middle right and middle middle
+                                            middle_right  <= middle_middle;
+                                            middle_middle <= middle_right;
+                                end
+                                DOWN   : begin
+                                            // Swap middle right and bottom right
+                                            middle_right <= bottom_right;
+                                            bottom_right <= middle_right;
+                                end
+                                default: space_loc = 4'bxxxx;
+                            endcase
                 end
                 4'b1000: begin // Bottom left
-
+                            case (direction)
+                                UP     : begin
+                                            // Swap middle left and bottom left
+                                            middle_left <= bottom_left;
+                                            bottom_left <= middle_left;
+                                end
+                                RIGHT  : begin
+                                            // Swap bottom middle and bottom left
+                                            bottom_middle <= bottom_left;
+                                            bottom_left   <= bottom_middle;
+                                end
+                                default: space_loc = 4'bxxxx;
+                            endcase
                 end
                 4'b1001: begin // Bottom middle
-
+                            case (direction)
+                                UP     : begin
+                                            // Swap bottom middle and middle middle
+                                            bottom_middle <= middle_middle;
+                                            middle_middle <= bottom_middle;
+                                end
+                                RIGHT  : begin
+                                            // Swap bottom middle and bottom right
+                                            bottom_middle <= bottom_right;
+                                            bottom_right  <= bottom_middle;
+                                end
+                                LEFT   : begin
+                                            // Swap bottom middle and bottom left
+                                            bottom_middle <= bottom_left;
+                                            bottom_left   <= bottom_middle;
+                                end
+                                default: space_loc = 4'bxxxx;
+                            endcase
                 end
                 4'b1010: begin // Bottom right
-
+                            case (direction)
+                                UP     : begin
+                                            // Swap middle right and bottom right
+                                            middle_right <= bottom_right;
+                                            bottom_right <= middle_right;
+                                end
+                                LEFT   : begin
+                                            // Swap bottom middle and bottom right
+                                            bottom_middle <= bottom_right;
+                                            bottom_right  <= bottom_middle;
+                                end
+                                default: space_loc = 4'bxxxx;
+                            endcase
                 end
                 default: space_loc <= 4'bxxxx
             endcase
