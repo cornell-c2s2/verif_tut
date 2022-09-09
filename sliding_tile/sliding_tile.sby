@@ -3,7 +3,7 @@ task1
 
 [options]
 task1:
-mode bmc
+mode cover
 depth 100
 
 [engines]
@@ -11,8 +11,8 @@ task1:
 smtbmc
 
 [script]
-read -formal reg.v
-prep -top eightbit_reg
+read -formal sliding_tile.v
+prep -top sliding_tile
 
 [files]
-reg.v
+sliding_tile.v

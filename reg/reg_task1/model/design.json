@@ -1,0 +1,198 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json",
+  "generator": "Yosys 0.21+1 (git sha1 4fa4161aa, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "eightbit_reg",
+        "cell_sorts": [
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$13",
+                  "attributes": {
+                    "src": "reg.v:21.13-21.25|reg.v:21.9-22.38"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$15",
+                  "attributes": {
+                    "src": "reg.v:21.13-21.25|reg.v:21.9-22.38"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$17",
+                  "attributes": {
+                    "src": "reg.v:19.5-23.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$18",
+                  "attributes": {
+                    "src": "reg.v:19.5-23.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$19",
+                  "attributes": {
+                    "src": "reg.v:19.5-23.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$20",
+                  "attributes": {
+                    "src": "reg.v:19.5-23.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$21",
+                  "attributes": {
+                    "src": "reg.v:9.5-11.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$reg.v:22$8",
+                  "attributes": {
+                    "src": "reg.v:22.21-22.35"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$assert",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$assert$reg.v:21$9",
+                  "attributes": {
+                    "src": "reg.v:21.27-22.37"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "hdlname": "\\eightbit_reg",
+            "top": "00000000000000000000000000000001",
+            "src": "reg.v:1.1-27.10"
+        }
+      }
+  ]
+}

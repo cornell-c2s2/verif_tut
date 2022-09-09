@@ -1,4 +1,4 @@
-module sliding_tile
+module sliding_tile_fast
 (
     input logic       clk,
     input logic       reset,
@@ -297,8 +297,47 @@ module sliding_tile
 
     logic f_past_valid = 0;
 
+    initial assume(reset);
+
     always @( posedge clk ) begin
         cover((game_state==9'b111111111) && design_was_reset);
+
+        if( design_was_reset ) begin
+            assume(!reset);
+        end
+        
+        if(direction==LEFT) begin
+            assume(space_loc[1:0] > 2'd0);
+        end
+
+        if(direction==RIGHT) begin
+            assume(space_loc[1:0] < 2'd2);
+        end
+
+        if(direction==UP) begin
+            assume(space_loc[3:2] > 2'd0);
+        end
+
+        if(direction==DOWN) begin
+            assume(space_loc[3:2] < 2'd2);
+        end
+
+        f_past_valid <= 1;
+        
+        if(f_past_valid) begin
+            if($past(direction)==LEFT) begin
+                assume(direction!=RIGHT);
+            end
+            if($past(direction)==RIGHT) begin
+                assume(direction!=LEFT);
+            end
+            if($past(direction)==UP) begin
+                assume(direction!=DOWN);
+            end
+            if($past(direction)==DOWN) begin
+                assume(direction!=UP);
+            end
+        end
     end
 
     `endif // FORMAL
