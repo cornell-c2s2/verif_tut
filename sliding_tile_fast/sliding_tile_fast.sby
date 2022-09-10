@@ -8,7 +8,7 @@ depth 100
 
 [engines]
 task1:
-smtbmc
+btor btormc
 
 [script]
 read -formal sliding_tile_fast.v

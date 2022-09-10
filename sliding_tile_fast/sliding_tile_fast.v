@@ -60,14 +60,14 @@ module sliding_tile_fast
 
     always @( posedge clk ) begin
         if( reset ) begin
-            top_left      <= 4'd2;
-            top_middle    <= 4'd5;
+            top_left      <= 4'd5;
+            top_middle    <= 4'd1;
             top_right     <= 4'd6;
-            middle_left   <= 4'd1;
+            middle_left   <= 4'd2;
             middle_middle <= 4'd7;
-            middle_right  <= 4'd8;
-            bottom_left   <= 4'd4;
-            bottom_middle <= 4'd3;
+            middle_right  <= 4'd3;
+            bottom_left   <= 4'd8;
+            bottom_middle <= 4'd4;
             bottom_right  <= 4'd0;
         
             space_loc     <= 4'b1010;
