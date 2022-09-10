@@ -14,15 +14,15 @@ module sliding_tile_fast
 
     // Instantiate game representation
     
-    logic [4:0] top_left;
-    logic [4:0] top_middle;
-    logic [4:0] top_right;
-    logic [4:0] middle_left;
-    logic [4:0] middle_middle;
-    logic [4:0] middle_right;
-    logic [4:0] bottom_left;
-    logic [4:0] bottom_middle;
-    logic [4:0] bottom_right;
+    logic [3:0] top_left;
+    logic [3:0] top_middle;
+    logic [3:0] top_right;
+    logic [3:0] middle_left;
+    logic [3:0] middle_middle;
+    logic [3:0] middle_right;
+    logic [3:0] bottom_left;
+    logic [3:0] bottom_middle;
+    logic [3:0] bottom_right;
 
     logic [3:0] space_loc;
 

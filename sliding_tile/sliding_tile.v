@@ -14,15 +14,15 @@ module sliding_tile
 
     // Instantiate game representation
     
-    logic [4:0] top_left;
-    logic [4:0] top_middle;
-    logic [4:0] top_right;
-    logic [4:0] middle_left;
-    logic [4:0] middle_middle;
-    logic [4:0] middle_right;
-    logic [4:0] bottom_left;
-    logic [4:0] bottom_middle;
-    logic [4:0] bottom_right;
+    logic [3:0] top_left;
+    logic [3:0] top_middle;
+    logic [3:0] top_right;
+    logic [3:0] middle_left;
+    logic [3:0] middle_middle;
+    logic [3:0] middle_right;
+    logic [3:0] bottom_left;
+    logic [3:0] bottom_middle;
+    logic [3:0] bottom_right;
 
     logic [3:0] space_loc;
 
@@ -298,7 +298,14 @@ module sliding_tile
     logic f_past_valid = 0;
 
     always @( posedge clk ) begin
+        f_past_valid <= 1;
+
         cover((game_state==9'b111111111) && design_was_reset);
+
+        //////////////////////////////////////////////////////
+        // ADD YOUR VERIFICATION CHECKS HERE
+        //////////////////////////////////////////////////////
+
     end
 
     `endif // FORMAL
